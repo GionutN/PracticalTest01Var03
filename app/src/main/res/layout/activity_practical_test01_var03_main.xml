@@ -7,11 +7,12 @@
     android:padding="16dp">
 
     <EditText
-        android:id="@+id/navigate_button"
+        android:id="@+id/up_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="left"
         android:layout_marginBottom="32dp"
+        android:saveEnabled="false"
         android:text="1" />
 
     <LinearLayout
@@ -21,21 +22,21 @@
         android:weightSum="2">
 
         <Button
-            android:id="@+id/left_text"
+            android:id="@+id/plus_button"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:enabled="false"
+            android:enabled="true"
             android:gravity="center"
             android:saveEnabled="false"
             android:text="+" />
 
         <Button
-            android:id="@+id/right_text"
+            android:id="@+id/minus_button"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:enabled="false"
+            android:enabled="true"
             android:gravity="center"
             android:saveEnabled="false"
             android:text="-" />
@@ -49,23 +50,25 @@
         android:layout_marginTop="16dp">
 
         <EditText
-            android:id="@+id/left_button"
+            android:id="@+id/down_text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="1"
+            android:saveEnabled="false"
             android:layout_marginEnd="8dp"/>
 
         <TextView
-            android:id="@+id/right_button"
+            android:id="@+id/op_text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="1+1=2"
+            android:saveEnabled="false"
             android:layout_marginStart="8dp"/>
 
         <Button
-            android:id="@+id/secondActivity"
+            android:id="@+id/secondary_activity_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
