@@ -72,7 +72,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:enabled="false"
+            android:enabled="true"
             android:gravity="center"
             android:saveEnabled="false"
             android:text="NAVIGATE TO SECOND ACTIVITY" />

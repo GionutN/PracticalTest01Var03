@@ -1,5 +1,7 @@
 package ro.pub.cs.systems.eim.practicaltest01var03
 
+import android.app.ComponentCaller
+import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import android.widget.Button
@@ -23,8 +25,6 @@ class PracticalTest01Var03MainActivity : AppCompatActivity() {
     private var serviceStarted: Boolean = false
 
     private inner class ButtonClickListener : View.OnClickListener {
-        private var leftCount: Int = 0
-        private var rightCount: Int = 0
         override fun onClick(view: View) {
             when (view.id) {
                 R.id.plus_button -> {
@@ -48,17 +48,19 @@ class PracticalTest01Var03MainActivity : AppCompatActivity() {
                     }
                     //checkAndStartService(leftCount, rightCount)
                 }
-                /*R.id.secondary_activity_button -> {
-                    val intent = Intent(this@PracticalTest01MainActivity, PracticalTest01SecondaryActivity::class.java)
+                R.id.secondary_activity_button -> {
+                    val intent = Intent(
+                        this@PracticalTest01Var03MainActivity,
+                        PracticalTest01Var03SecondaryActivity::class.java
+                    )
                     //val intent = Intent("ro.pub.cs.systems.eim.practicaltest01.intent.action.PracticalTest01SecondaryActivity")
 
-                    val numberOfClicks = leftText!!.text.toString().toInt() +
-                            rightText!!.text.toString().toInt()
+                    //val numberOfClicks = leftText!!.text.toString().toInt() + rightText!!.text.toString().toInt()
 
-                    intent.putExtra(Constants.NUMBER_OF_CLICKS, numberOfClicks)
+                    intent.putExtra(Constants.OP_TEXT_SECOND, opText!!.text.toString())
 
                     startActivityForResult(intent, Constants.SECONDARY_ACTIVITY_REQUEST_CODE)
-                }*/
+                }
             }
         }
     }
@@ -130,6 +132,18 @@ class PracticalTest01Var03MainActivity : AppCompatActivity() {
             opText!!.setText(savedInstanceState.getString(Constants.OP_TEXT))
         } else {
             opText!!.setText("1 + 1 = 2")
+        }
+    }
+
+    override fun onActivityResult(
+        requestCode: Int,
+        resultCode: Int,
+        data: Intent?,
+        caller: ComponentCaller
+    ) {
+        super.onActivityResult(requestCode, resultCode, data, caller)
+        if (requestCode == Constants.SECONDARY_ACTIVITY_REQUEST_CODE) {
+            Toast.makeText(this, "The activity returned with code $resultCode", Toast.LENGTH_LONG).show()
         }
     }
 }
